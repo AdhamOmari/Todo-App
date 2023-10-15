@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;1,100&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 800px;
+  margin: 10% auto;
+
+}
+
+.app-wrap {
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 45px;
+
+}
+
+.list-wrap {
+  display: flex;
+  flex-direction: column;
+
+
+}
+
+.card {
+  border: 1px solid #ccc;
+  margin: 10px;
+  border-radius: 14px;
+}
+
+.card-body {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+}
+
+.card-title {
+  flex: 1;
+}
+
+.button-wrap {
+  display: flex;
+  align-items: center;
+}
+
+.button-wrap button {
+  margin-right: 10px;
+}
+
+
+.button-wrap {
+  display: flex;
+  flex-direction: row;
+  gap: 10%;
+}
+
+.spinner {
+  color: #545d5b !important;
+  width: 50%;
+  margin: 0 auto;
+  border-radius: 30%;
+  box-shadow: whitesmoke;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.search-input input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 15px;
+  padding: 5px 10px;
+  width: 100%;
+}
+
+.form-btn {
+  font-size: 16px;
+
+}
+
+.clear-icon {
+  cursor: pointer;
+  width: 80%;
+
+
+}
+
+.search-icon {
+  cursor: pointer;
+  width: 80%;
+
+}

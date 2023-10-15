@@ -1,6 +1,10 @@
 import { FC, useState } from "react";
-import { useDispatch } from 'react-redux';
+import { useDispatch } from "react-redux";
 import { addTodo } from "../redux/actions";
+import { Button, FormControl, InputGroup } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
+
 const AddList: FC = () => {
   const [text, setText] = useState("");
   const dispatch = useDispatch();
@@ -11,15 +15,20 @@ const AddList: FC = () => {
       setText("");
     }
   };
+
   return (
-    <div>
-      <input
-        type="text"
-        placeholder="Enter a new todo"
-        value={text}
-        onChange={(e) => setText(e.target.value)}
-      />
-      <button onClick={handleAdd}>Add</button>
+    <div className="add-list-wrap">
+      <InputGroup className="mb-3">
+        <FormControl
+          type="text"
+          placeholder="Enter a new todo"
+          value={text}
+          onChange={(e) => setText(e.target.value)}
+        />
+        <Button variant="primary" onClick={handleAdd}>
+          <FontAwesomeIcon icon={faPlus} /> 
+        </Button>
+      </InputGroup>
     </div>
   );
 };
