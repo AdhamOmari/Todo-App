@@ -10,7 +10,9 @@ interface Todo {
 }
 
 const List = () => {
-  const todos: Todo[] = useSelector((state :RootState) => state.todos);
+  const todos: Todo[] = useSelector(
+    (state: RootState) => state.todos as unknown as Todo[]
+  );
   console.log("✅ todos    ", todos);
 
   return (
