@@ -9,10 +9,10 @@
 }
 
 .app-container {
-  width: 100%;
-  max-width: 800px;
-  margin: 10% auto;
-  padding: 8%;
+  width: 80%;
+  max-width: 700px;
+  margin: 3% auto;
+  padding: 3%;
   text-align: center;
   border: 1px d #0dcaf0;
   border-radius: 8px;
@@ -36,7 +36,7 @@
 
 }
 .input-group{
-  width: 43%;
+  width: 44% !important;
   margin: 10px auto;
 }
 .list-wrap {
