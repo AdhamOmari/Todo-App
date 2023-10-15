@@ -28,7 +28,7 @@ const SearchComponent = () => {
   return (
     <Form>
       <div className="search-container">
-        <Form.Group controlId="searchForm">
+        <Form.Group controlId="searchForm" >
           <div className="search-input">
             <input
               type="text"
@@ -39,20 +39,18 @@ const SearchComponent = () => {
           </div>
         </Form.Group>
         <Button
-          variant="primary"
+          variant="outline-info"
           className="form-btn"
           onClick={searchActive ? handleSearch : handleClear}
         >
           {searchActive ? (
-                        <FontAwesomeIcon icon={faSearch} className="search-icon" />
-
-     
+            <FontAwesomeIcon icon={faSearch} className="search-icon"  />
           ) : (
             <FontAwesomeIcon
-            icon={faTimes}
-            className="clear-icon form-btn "
-            onClick={handleClear}
-          />
+              icon={faTimes}
+              className="clear-icon form-btn "
+              onClick={handleClear}
+            />
           )}
         </Button>
       </div>

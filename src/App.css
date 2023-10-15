@@ -3,6 +3,9 @@
 * {
   font-family: 'Montserrat', sans-serif;
   font-size: 16px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .app-container {
@@ -27,11 +30,12 @@
 
 
 }
-.new-task-input{
+
+.new-task-input {
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
-  border-radius: 15px;
+  border-radius: 4px;
   padding: 5px 10px;
   width: 100%;
   text-align: center;
@@ -41,7 +45,7 @@
 .card {
   border: 1px solid #ccc;
   margin: 10px;
-  border-radius: 14px;
+  border-radius: 8px;
 }
 
 .card-body {
@@ -62,6 +66,7 @@
 
 .button-wrap button {
   margin-right: 10px;
+  border-radius: 4px;
 }
 
 
@@ -72,11 +77,9 @@
 }
 
 .spinner {
-  color: #545d5b !important;
+  color: #0dcaf0;
   width: 50%;
   margin: 0 auto;
-  border-radius: 30%;
-  box-shadow: whitesmoke;
   display: flex;
   justify-content: space-evenly;
 }
@@ -92,10 +95,31 @@
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
-  border-radius: 15px;
+  border-radius: 4px;
   padding: 5px 10px;
   width: 100%;
   text-align: center;
+
+}
+.save-change input {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 5px 10px;
+  width: 100%;
+  text-align: center;
+
+}
+.save-change {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  
+}
+.search-input input:focus {
+  outline: none;
+
 
 }
 

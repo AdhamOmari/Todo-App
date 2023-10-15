@@ -26,7 +26,7 @@ const AddList: FC = () => {
           value={text}
           onChange={(e) => setText(e.target.value)}
         />
-        <Button variant="primary" onClick={handleAdd}>
+        <Button variant="outline-info" onClick={handleAdd}>
           <FontAwesomeIcon icon={faPlus} /> 
         </Button>
       </InputGroup>

@@ -49,13 +49,17 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
       <Card.Header>Todo</Card.Header>
       <Card.Body>
         {flag ? (
-          <div>
+          <div className="save-change ">
             <input
               type="text"
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
+       
             />
-            <button className="btn btn-primary save-button" onClick={saveTitle}>
+            <button
+              className="btn btn-outline-info save-button"
+              onClick={saveTitle}
+            >
               <FontAwesomeIcon icon={faSave} />
             </button>
           </div>
