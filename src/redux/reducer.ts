@@ -5,6 +5,7 @@ import {
   DELETE_TODO,
   SEARCH_TODO,
   ISDONE_TODO,
+  CLEAR_SEARCH,
 } from './actions'
 
 export interface Todo {
@@ -15,13 +16,16 @@ export interface Todo {
 
 export interface TodoState {
   todos: Todo[]
+  filteredTodos: Todo[]
 }
 
 const initialState: TodoState = {
   todos: [],
+  filteredTodos: [],
 }
 export interface RootState {
   todos: TodoState
+  filteredTodos: TodoState
 }
 const TodoReducer = (
   state: TodoState = initialState,
@@ -57,13 +61,22 @@ const TodoReducer = (
         ...state,
         todos: state.todos.filter((todo) => todo.id !== action.id),
       }
-    case SEARCH_TODO:
+    case SEARCH_TODO: {
+      const searchText = action.searchText.toLowerCase()
+      const filteredTodos = state.todos.filter((todo) =>
+        todo.text.toLowerCase().includes(searchText),
+      )
+
       return {
         ...state,
-        todos: state.todos.filter((todo) =>
-          todo.text.toLowerCase().includes(action.searchText.toLowerCase()),
-        ),
+        filteredTodos,
       }
+    }
+    case CLEAR_SEARCH:
+      return {
+        ...state,
+        filteredTodos: [], 
+      };
     default:
       return state
   }

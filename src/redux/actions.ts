@@ -3,7 +3,7 @@ export const EDIT_TODO = 'EDIT_TODO'
 export const DELETE_TODO = 'DELETE_TODO'
 export const ISDONE_TODO = 'ISDONE_TODO'
 export const SEARCH_TODO = 'SEARCH_TODO'
-
+export const CLEAR_SEARCH = 'CLEAR_SEARCH';
 export interface AddTodoAction {
   type: typeof ADD_TODO
   text: string
@@ -29,6 +29,9 @@ export interface SearchTodoAction {
   type: typeof SEARCH_TODO
   searchText: string
 }
+export interface ClearSearchAction {
+  type: typeof CLEAR_SEARCH;
+}
 
 export type TodoAction =
   | AddTodoAction
@@ -36,6 +39,7 @@ export type TodoAction =
   | DeleteTodoAction
   | SearchTodoAction
   | IsDoneTodoAction
+  |ClearSearchAction
 
 export const addTodo = (text: string): AddTodoAction => ({
   type: ADD_TODO,
@@ -62,3 +66,6 @@ export const searchTodoAction = (searchText: string): SearchTodoAction => ({
   type: SEARCH_TODO,
   searchText,
 })
+export const clearSearch = (): ClearSearchAction => ({
+  type: CLEAR_SEARCH,
+});

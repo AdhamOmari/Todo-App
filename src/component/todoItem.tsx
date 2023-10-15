@@ -47,7 +47,6 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
   const handleDelete = () => {
     dispatch(deleteTodo(id));
     Swal.fire({
-      position: "top",
       icon: "error",
       title: "Delete",
       timer: 2000,
@@ -59,13 +58,15 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
   const handelIsDone = () => {
     setIsDone(!stateDone);
     dispatch(isDoneTodo(id, stateDone));
-    Swal.fire({
-      icon: "success",
-      title: "Done",
-      text: "Todo status is updated successfully",
+    stateDone
+      ? ""
+      : Swal.fire({
+          icon: "success",
+          title: "Done",
+          text: "Todo status is updated successfully",
 
-      background: "#f0f0f0",
-    });
+          background: "#f0f0f0",
+        });
   };
   const handleCopy = () => {
     const todoListText = newTitle;
@@ -90,7 +91,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
         console.error("Copy failed", err);
       });
   };
-  useEffect(() => {}, [newTitle, stateDone]);
+  useEffect(() => {}, [newTitle]);
 
   return (
     <Card>

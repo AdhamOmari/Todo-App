@@ -11,12 +11,12 @@
 .app-container {
   width: 100%;
   max-width: 800px;
-  margin: 7% auto;
+  margin: 3% auto;
   padding: 8%;
   text-align: center;
-  border: 1px solid #0dcaf0;
-  border-radius: 4px;
-
+  border: 1px d #0dcaf0;
+  border-radius: 8px;
+  box-shadow: 0 20px 50px rgb(89, 93, 118);
 }
 
 .app-wrap {
@@ -35,7 +35,10 @@
   gap: 20px;
 
 }
-
+.input-group{
+  width: 43%;
+  margin: 10px auto;
+}
 .list-wrap {
   display: flex;
   flex-direction: column;
@@ -86,6 +89,7 @@
 .button-wrap {
   display: flex;
   flex-direction: row;
+  justify-content: space-around;
   gap: 10%;
 }
 
@@ -108,7 +112,7 @@
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 5px 10px;
   width: 100%;
   text-align: center;
@@ -162,6 +166,7 @@
   color: green;
   font-size: 20px;
   font-weight: 700;
+  text-transform: uppercase;
 }
 
 .not-completed {

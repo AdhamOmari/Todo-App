@@ -1,8 +1,8 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useEffect, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useDispatch } from "react-redux";
-import { searchTodoAction } from "../redux/actions";
+import { clearSearch, searchTodoAction } from "../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
 
@@ -18,13 +18,15 @@ const SearchComponent = () => {
 
   const handleClear = () => {
     setSearchText("");
+    dispatch(clearSearch());
+
     setSearchActive(true);
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
   };
-
+  useEffect(() => {}, [searchText]);
   return (
     <Form>
       <div className="search-container">
