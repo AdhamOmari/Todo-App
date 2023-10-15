@@ -17,17 +17,17 @@ const List = () => {
 
   return (
     <div className="list-wrap">
-      <div className="card">
-        {todos.length === 0 ? (
-          <PulseLoader className="spinner" />
-        ) : (
-          todos.map((list) => (
+      {todos.length === 0 ? (
+          <PulseLoader className="spinner" color="#0dcaf0" />
+      ) : (
+        <div className="card">
+          {todos.map((list) => (
             <div key={list.id}>
               <TodoItem id={list.id} text={list.text} isDone={list.isDone} />
             </div>
-          ))
-        )}
-      </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 };

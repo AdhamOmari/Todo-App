@@ -3,12 +3,17 @@ import { useDispatch } from "react-redux";
 import { deleteTodo, editTodo, isDoneTodo } from "../redux/actions";
 import Card from "react-bootstrap/Card";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { writeText } from "clipboard-polyfill";
+import Tooltip from "react-bootstrap/Tooltip";
+import OverlayTrigger from "react-bootstrap/OverlayTrigger";
 import {
   faTrash,
   faEdit,
   faCheck,
   faSave,
+  faCopy,
 } from "@fortawesome/free-solid-svg-icons";
+import Swal from "sweetalert2";
 
 interface TodoItemProps {
   id: number;
@@ -27,21 +32,64 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
   const handleEdit = () => {
     setFlag(!flag);
   };
-
   const saveTitle = () => {
     dispatch(editTodo(id, newTitle));
     setFlag(false);
+    Swal.fire({
+      icon: "success",
+      title: "Success",
+      text: "Todo edited successfully",
+      showConfirmButton: false,
+      timer: 2000,
+    });
   };
 
   const handleDelete = () => {
     dispatch(deleteTodo(id));
+    Swal.fire({
+      position: "top",
+      icon: "error",
+      title: "Delete",
+      timer: 2000,
+      showConfirmButton: false,
+      text: "Todo deleted successfully",
+    });
   };
 
   const handelIsDone = () => {
     setIsDone(!stateDone);
     dispatch(isDoneTodo(id, stateDone));
-  };
+    Swal.fire({
+      icon: "success",
+      title: "Done",
+      text: "Todo status is updated successfully",
 
+      background: "#f0f0f0",
+    });
+  };
+  const handleCopy = () => {
+    const todoListText = newTitle;
+
+    writeText(todoListText)
+      .then(() => {
+        Swal.fire({
+          icon: "success",
+          title: "Success",
+          text: "Todo list copied to clipboard",
+          customClass: {
+            confirmButton: "btn btn-outline-info",
+          },
+        });
+      })
+      .catch((err) => {
+        Swal.fire({
+          icon: "error",
+          title: "Error",
+          text: "Copy failed",
+        });
+        console.error("Copy failed", err);
+      });
+  };
   useEffect(() => {}, [newTitle, stateDone]);
 
   return (
@@ -54,7 +102,6 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
               type="text"
               value={newTitle}
               onChange={(e) => setNewTitle(e.target.value)}
-       
             />
             <button
               className="btn btn-outline-info save-button"
@@ -65,10 +112,24 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
           </div>
         ) : (
           <div>
-            <Card.Title
-              style={{ textDecoration: stateDone ? "line-through" : "none" }}
-            >
-              {newTitle}
+            <Card.Title>
+              <div className="title-wrap">
+                <p className={stateDone ? "completed" : "not-completed"}>
+                  {newTitle}
+                </p>
+                <OverlayTrigger
+                  placement="top"
+                  overlay={<Tooltip id="copy-tooltip">Copy text</Tooltip>}
+                >
+                  <button
+                    onClick={handleCopy}
+                    className="btn btn-secondary"
+                    data-tip="Copy the text"
+                  >
+                    <FontAwesomeIcon icon={faCopy} />
+                  </button>
+                </OverlayTrigger>
+              </div>
             </Card.Title>
             <div className="button-wrap">
               {!stateDone ? (
