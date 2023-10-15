@@ -1,7 +1,6 @@
 import { useSelector } from "react-redux";
 import TodoItem from "./todoItem";
 import { PulseLoader } from "react-spinners";
-import SearchComponent from "./SearchComponent";
 
 interface Todo {
   id: number;
@@ -17,7 +16,7 @@ const List = () => {
     <div className="list-wrap">
       <div className="card">
         {todos.length === 0 ? (
-          <PulseLoader   className="spinner"/>
+          <PulseLoader className="spinner" />
         ) : (
           todos.map((list) => (
             <div key={list.id}>

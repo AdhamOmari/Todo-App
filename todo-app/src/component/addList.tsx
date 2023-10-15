@@ -20,6 +20,7 @@ const AddList: FC = () => {
     <div className="add-list-wrap">
       <InputGroup className="mb-3">
         <FormControl
+        className="new-task-input"
           type="text"
           placeholder="Enter a new todo"
           value={text}
