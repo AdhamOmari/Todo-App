@@ -1,6 +1,7 @@
 import { useSelector } from "react-redux";
 import TodoItem from "./todoItem";
 import { PulseLoader } from "react-spinners";
+import { RootState } from "../redux/reducer";
 
 interface Todo {
   id: number;
@@ -9,7 +10,7 @@ interface Todo {
 }
 
 const List = () => {
-  const todos: Todo[] = useSelector((state) => state.todos);
+  const todos: Todo[] = useSelector((state :RootState) => state.todos);
   console.log("✅ todos    ", todos);
 
   return (

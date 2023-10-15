@@ -20,7 +20,9 @@ export interface TodoState {
 const initialState: TodoState = {
   todos: [],
 }
-
+export interface RootState {
+  todos: TodoState
+}
 const TodoReducer = (
   state: TodoState = initialState,
   action: TodoAction,
