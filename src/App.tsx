@@ -7,14 +7,17 @@ import AddList from "./component/addList";
 const App: FC = () => {
   return (
     <div className="app-container">
-<h1 className="todo-hiding"> Todo </h1>
-<SearchComponent />
+      <header>
+        <h1 className="todo-hiding"> Todo </h1>
+        <SearchComponent />
+      </header>
 
-      <div className="app-wrap">
-        <List />
-        <AddList />
-
-      </div>
+      <main>
+        <div className="app-wrap">
+          <List />
+          <AddList />
+        </div>
+      </main>
     </div>
   );
 };

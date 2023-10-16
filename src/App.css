@@ -43,6 +43,8 @@
   flex-direction: column;
   align-items: center;
   gap: 45px;
+  width: 100%;
+
 
 }
 
@@ -144,7 +146,7 @@
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 5px 10px;
-  width: 77%;
+  width: 70%;
   text-align: center;
 
 }
@@ -276,7 +278,8 @@
   padding: 10%;
   border-radius: 18px;
   width: 100%;
-  min-width: 300px;
+  min-width: 237px;
+  margin: 14% auto;
 }
 
 .todo-progress-label {
