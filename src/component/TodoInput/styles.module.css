@@ -1,0 +1,25 @@
+.newTaskWrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    margin: 10px auto;
+  
+  }
+  .newTaskWrap input {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 5px 10px;
+    text-align: center;
+  
+  
+  }
+  
+.inputContainer {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  

@@ -1,0 +1,45 @@
+.todo-item {
+    list-style-type: none;
+    background-color: #cac7c7;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .title-wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .not-completed {
+    font-weight: bold;
+  }
+  
+  .completed {
+    text-decoration: line-through;
+    text-decoration: line-through;
+    color: green;
+    font-size: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .save-change {
+    display: flex;
+    align-items: center;
+  }
+  
+  .save-change-input {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .button-wrap {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+
+  }
+  

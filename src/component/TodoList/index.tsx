@@ -1,8 +1,9 @@
 import { useSelector } from "react-redux";
-import TodoItem from "./todoItem";
-import { RootState } from "../redux/reducer";
-import TodoProgressBar from "./TodoProgressBar";
+import TodoItem from "../TodoItem";
+import { RootState } from "../../redux/reducer";
+import TodoProgressBar from "../TodoProgressBar";
 import { useEffect } from "react";
+import style from "./styles.module.css";
 
 interface Todo {
   id: number;
@@ -26,15 +27,15 @@ const List = () => {
   
 
   return (
-    <div className="list-wrap">
+    <div className={style["list-wrap"]}>
       <TodoProgressBar progress={progress} />
-        <div className="card">
-          {(filteredTodos?.length > 0  ? filteredTodos : todos).map((todo) => (
-            <div key={todo.id}>
-              <TodoItem id={todo.id} text={todo.text} isDone={todo.isDone} />
-            </div>
-          ))}
-        </div>
+      <div className={style.card}>
+        {(filteredTodos?.length > 0  ? filteredTodos : todos).map((todo) => (
+          <div key={todo.id}>
+            <TodoItem id={todo.id} text={todo.text} isDone={todo.isDone} />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

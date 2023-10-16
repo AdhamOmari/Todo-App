@@ -1,11 +1,12 @@
-import { ChangeEvent, useEffect, useState } from "react";
+import { ChangeEvent, useState } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
-import { clearSearch, searchTodoAction } from "../redux/actions";
+import { clearSearch, searchTodoAction } from "../../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch, faTimes } from "@fortawesome/free-solid-svg-icons";
-import { RootState } from "../redux/reducer";
+import { RootState } from "../../redux/reducer";
+import style from "./styles.module.css";
 
 interface Todo {
   id: number;
@@ -18,6 +19,7 @@ const SearchComponent = () => {
   const dispatch = useDispatch();
   const [searchActive, setSearchActive] = useState<boolean>(true);
   const [shake, setShake] = useState<boolean>(false);
+  const [inputActive, setInputActive] = useState<boolean>(false);
 
   const filteredTodos: Todo[] = useSelector(
     (state: RootState) => state.filteredTodos as unknown as Todo[]
@@ -37,41 +39,52 @@ const SearchComponent = () => {
     setSearchActive(true);
   };
 
+  const handelIsActice = () => {
+    setInputActive(!inputActive);
+    setTimeout(() => {
+      setInputActive(false);
+    }, 60000); 
+  };
+
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
   };
 
-  useEffect(() => {}, [searchText, shake, filteredTodos]);
-
   return (
-    <Form>
-      <div className={`search-container ${shake ? "shake" : ""}`}>
-        <Form.Group controlId="searchForm">
+    <>
+      {inputActive ? (
+        <Form>
+          <div className={`${style["search-container"]} ${shake ? style.shake : ""}`}>
             <input
               type="text"
               placeholder="Search..."
               value={searchText}
               onChange={handleChange}
-              className="search-input"
+              className={style["search-input"]}
             />
-        </Form.Group>
-        <Button
-          variant="outline-info"
-          className="form-btn"
-          onClick={searchActive ? handleSearch : handleClear}
-        >
-          {searchActive ? (
-            <FontAwesomeIcon icon={faSearch} className="search-icon" />
-          ) : (
-            <FontAwesomeIcon
-              icon={faTimes}
-              className="clear-icon form-btn"
-              onClick={handleClear}
-            />
-          )}
+            <Button
+              variant="outline-info"
+              className="form-btn"
+              onClick={searchActive ? handleSearch : handleClear}
+            >
+              {searchActive ? (
+                <FontAwesomeIcon icon={faSearch} className={style["search-icon"]} />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faTimes}
+                  className={`${style["clear-icon"]} form-btn`}
+                  onClick={handleClear}
+                />
+              )}
+            </Button>
+          </div>
+        </Form>
+      ) : (
+        <Button variant="outline-info" className="form-btn" onClick={handelIsActice}>
+          <FontAwesomeIcon icon={faSearch} className={style["search-icon"]} />
         </Button>
-      </div>
-    </Form>
+      )}
+    </>
   );
 };
 
