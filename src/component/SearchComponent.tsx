@@ -24,9 +24,10 @@ const SearchComponent = () => {
   );
 
   const handleSearch = () => {
+    filteredTodos?.length > 0 ? setShake(false) : setShake(true);
+
     dispatch(searchTodoAction(searchText));
     setSearchActive(false);
-    filteredTodos?.length > 0 ? setShake(false) : setShake(true);
   };
 
   const handleClear = () => {
@@ -40,20 +41,19 @@ const SearchComponent = () => {
     setSearchText(e.target.value);
   };
 
-  useEffect(() => {}, [searchText, shake]);
+  useEffect(() => {}, [searchText, shake, filteredTodos]);
 
   return (
     <Form>
       <div className={`search-container ${shake ? "shake" : ""}`}>
         <Form.Group controlId="searchForm">
-          <div className="search-input">
             <input
               type="text"
               placeholder="Search..."
               value={searchText}
               onChange={handleChange}
+              className="search-input"
             />
-          </div>
         </Form.Group>
         <Button
           variant="outline-info"

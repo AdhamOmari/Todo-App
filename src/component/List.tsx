@@ -1,7 +1,8 @@
 import { useSelector } from "react-redux";
 import TodoItem from "./todoItem";
-import { PulseLoader } from "react-spinners";
 import { RootState } from "../redux/reducer";
+import TodoProgressBar from "./TodoProgressBar";
+import { useEffect } from "react";
 
 interface Todo {
   id: number;
@@ -18,19 +19,22 @@ const List = () => {
   );
   console.log("✅ todos    ", todos);
 
+  const completedTodos = todos.filter((todo) => todo.isDone);
+  const progress = (completedTodos.length / todos.length) * 100;
+  useEffect(() => {}, [progress]);
+  console.log('✅ progress    ', progress)
+  
+
   return (
     <div className="list-wrap">
-      {todos.length === 0 ? (
-        <PulseLoader className="spinner" color="#0dcaf0" />
-      ) : (
+      <TodoProgressBar progress={progress} />
         <div className="card">
-          {(filteredTodos?.length > 0 ? filteredTodos : todos).map((list) => (
-            <div key={list.id}>
-              <TodoItem id={list.id} text={list.text} isDone={list.isDone} />
+          {(filteredTodos?.length > 0  ? filteredTodos : todos).map((todo) => (
+            <div key={todo.id}>
+              <TodoItem id={todo.id} text={todo.text} isDone={todo.isDone} />
             </div>
           ))}
         </div>
-      )}
     </div>
   );
 };

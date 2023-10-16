@@ -27,7 +27,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
   const [flag, setFlag] = useState<boolean>(false);
   const [newTitle, setNewTitle] = useState<string>(text);
   const dispatch = useDispatch();
-  const [stateDone, setIsDone] = useState<boolean>(false);
+  const [stateDone, setStateDone] = useState<boolean>(isDone);
 
   const handleEdit = () => {
     setFlag(!flag);
@@ -56,18 +56,20 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
   };
 
   const handelIsDone = () => {
-    setIsDone(!stateDone);
-    dispatch(isDoneTodo(id, stateDone));
-    stateDone
+    const updatedState = !stateDone;
+    setStateDone(updatedState);
+    dispatch(isDoneTodo(id, updatedState));
+
+    updatedState
       ? ""
       : Swal.fire({
           icon: "success",
           title: "Done",
           text: "Todo status is updated successfully",
-
           background: "#f0f0f0",
         });
   };
+
   const handleCopy = () => {
     const todoListText = newTitle;
 
@@ -91,6 +93,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
         console.error("Copy failed", err);
       });
   };
+
   useEffect(() => {}, [newTitle]);
 
   return (
@@ -115,7 +118,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
           <div>
             <Card.Title>
               <div className="title-wrap">
-                <p className={stateDone ? "completed" : "not-completed"}>
+                <p className={!stateDone ? "not-completed" : "completed"}>
                   {newTitle}
                 </p>
                 <OverlayTrigger
