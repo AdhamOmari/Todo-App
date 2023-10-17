@@ -1,72 +1,87 @@
 .todo-item {
   align-items: center;
-    background-color: #30313d;
-    border-radius: 10px;
-    display: flex;
-    margin-top: 5px;
-    padding: 9px 9px;
-    transition: opacity .3s linear;
-    border: 1px solid #fff;
-    justify-content:space-between;
-    gap: 20px;
-  }
-  
-  .title-wrap {
-    display: flex;
-    justify-content: space-between;
-  }
-  
-  .not-completed {
-    font-weight: bold;
-  }
-  
-  .completed {
-    text-decoration: line-through;
-    text-decoration: line-through;
-    color: #0dcaf0 !important;
-    font-size: 20px;
-    font-weight: 700;
-    text-transform: uppercase;
-  }
-  
-  .save-change {
-    display: flex;
-    align-items: center;
-  }
-  
-  .save-change-input {
-    flex: 1;
-    margin-right: 10px;
-    border-radius: 8px;
-    text-align: center;
-    font-size: 14px;
-    border: none;
-  }
-  
-  .button-wrap {
-    margin-top: 10px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
+  background-color: #30313d;
+  border-radius: 10px;
+  display: flex;
+  margin-top: 5px;
+  padding: 9px 9px;
+  transition: opacity .3s linear;
+  border: 1px solid #fff;
+  justify-content: space-between;
+  gap: 20px;
+}
 
-  }
-  .lefted{
-    justify-content: flex-end;
-padding: 1%
+.title-wrap {
+  display: flex;
+  justify-content: space-between;
+}
 
+.not-completed {
+  font-weight: bold;
+}
+
+.completed {
+  color: #fff !important;
+  font-size: 20px;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-decoration: line-through ;
+  text-decoration-color:green;
+
+}
+.completed::before {
+  content: '✓';
+  color: green !important;
+  text-decoration: none ;
   
-  }
-  .newTitle{
-    margin: 4% auto;
-    color: #fff;
+ 
+}
 
-  }
+.save-change {
+  display: flex;
+  align-items: center;
+}
 
-  
-  .button{
-    border-radius: 50px !important;
-  }
-  .customStyles{
-    border: "none", 
+.save-change-input {
+  flex: 1;
+  margin-right: 10px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  border: none;
+  outline: none;
+}
 
-  }
+.button-wrap {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+
+}
+
+.lefted {
+  justify-content: flex-end;
+  padding: 1%
+}
+
+.newTitle {
+  margin: 4% auto;
+  color: #fff;
+
+}
+
+
+.button {
+  border-radius: 50px !important;
+}
+
+.customStyles {
+  border: "none",
+
+}
+
+
+.center-class {
+  justify-content: center;
+}

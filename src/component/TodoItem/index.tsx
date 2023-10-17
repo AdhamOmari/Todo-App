@@ -96,7 +96,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
   useEffect(() => {}, [newTitle]);
 
   return (
-    <div className={`${style["todo-item"]}`}>
+<div className={`${style["todo-item"]} ${flag ? style["center-class"] : ""}`}>
       {flag ? (
         <div className={`${style["save-change"]}`}>
           <input
@@ -135,6 +135,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
                 itemSize={2}
                 radius={4}
                 rotationAngleInclusive={false}
+                
               >
                 <CircleMenuItem tooltip="Edit" className={"customStyles"}>
                   <button
