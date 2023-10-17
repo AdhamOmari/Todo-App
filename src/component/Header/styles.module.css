@@ -19,6 +19,8 @@
 .search-btn {
     width: 28% !important;
     max-width: 40px;
+    border: 1px solid #fff !important;
+
 
 }
 

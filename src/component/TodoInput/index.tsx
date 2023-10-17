@@ -58,7 +58,7 @@ const AddList = () => {
             {isAddButtonVisible && (
               <Button
                 variant="outline-info"
-                className="button"
+                className={style.button}
                 onClick={handleToggleInputVisibility}
               >
                 <FontAwesomeIcon icon={faPlus} className={style.addIcon} />
