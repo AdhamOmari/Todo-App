@@ -26,12 +26,12 @@
   font-weight: 700;
   text-transform: uppercase;
   text-decoration: line-through ;
-  text-decoration-color:green;
+  text-decoration-color:#0dcaf0;
 
 }
 .completed::before {
   content: '✓';
-  color: green !important;
+  color: #0dcaf0 !important;
   text-decoration: none ;
   
  
