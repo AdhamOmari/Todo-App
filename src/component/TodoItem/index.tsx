@@ -59,7 +59,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
     setStateDone(updatedState);
     dispatch(isDoneTodo(id, updatedState));
 
-    if (!updatedState) {
+    if (updatedState) {
       Swal.fire({
         icon: "success",
         title: "Done",

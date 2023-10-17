@@ -74,7 +74,7 @@ const SearchComponent = () => {
             />
             <Button
               variant="outline-info"
-              className="form-btn"
+              className="search-btn"
               onClick={searchActive ? handleSearch : handleClear}
             >
               {searchActive ? (
@@ -85,7 +85,7 @@ const SearchComponent = () => {
               ) : (
                 <FontAwesomeIcon
                   icon={faTimes}
-                  className={`${style["clear-icon"]} form-btn`}
+                  className={`${style["clear-icon"]} search-btn`}
                   onClick={handleClear}
                 />
               )}
@@ -95,7 +95,7 @@ const SearchComponent = () => {
       ) : (
         <Button
           variant="outline-info"
-          className="form-btn"
+          className="search-btn"
           onClick={handelIsActice}
         >
           <FontAwesomeIcon icon={faSearch} className={style["search-icon"]} />
