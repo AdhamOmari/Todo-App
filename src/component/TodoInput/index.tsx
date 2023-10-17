@@ -50,7 +50,7 @@ const AddList = () => {
               <Button
                 variant="outline-info "
                 onClick={handleAdd}
-                className="button"
+                className={style.button}
               >
                 <FontAwesomeIcon icon={faPlus} className={style.addIcon} />
               </Button>
