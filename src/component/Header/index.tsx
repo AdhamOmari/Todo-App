@@ -43,7 +43,7 @@ const SearchComponent = () => {
     setInputActive(!inputActive);
     setTimeout(() => {
       setInputActive(false);
-    }, 7000);
+    }, 70000);
     setSearchText("");
   };
 
@@ -74,7 +74,7 @@ const SearchComponent = () => {
             />
             <Button
               variant="outline-info"
-              className="search-btn"
+              className={style["search-btn"]}
               onClick={searchActive ? handleSearch : handleClear}
             >
               {searchActive ? (
@@ -95,7 +95,7 @@ const SearchComponent = () => {
       ) : (
         <Button
           variant="outline-info"
-          className="search-btn"
+          className={style["search-btn"]}
           onClick={handelIsActice}
         >
           <FontAwesomeIcon icon={faSearch} className={style["search-icon"]} />
