@@ -1,6 +1,6 @@
 .todo-item {
   align-items: center;
-  background-color: #30313d;
+  background-color:#515151;
   border-radius: 10px;
   display: flex;
   margin-top: 5px;
@@ -68,6 +68,7 @@
 .newTitle {
   margin: 4% auto;
   color: #fff;
+  font-size: 16px;
 
 }
 
@@ -76,4 +77,6 @@
   border-radius: 50px !important;
 }
 
-
+.custom-circle-menu {
+border: 20px solid red !important;
+}
