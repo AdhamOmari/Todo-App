@@ -2,7 +2,15 @@
 .list-wrap {
     display: flex;
     flex-direction: column;
+    gap: 20px;
+    width: 80%;
 
   
   }
-  
+  .card{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    
+  }

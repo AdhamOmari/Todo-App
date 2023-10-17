@@ -47,13 +47,18 @@ const AddList: FC = () => {
                 value={text}
                 onChange={(e) => setText(e.target.value)}
               />
-              <Button variant="outline-info" onClick={handleAdd}>
+              <Button
+                variant="outline-info "
+                onClick={handleAdd}
+                className="button"
+              >
                 <FontAwesomeIcon icon={faPlus} className={style.addIcon} />
               </Button>
             </div>
             {isAddButtonVisible && (
               <Button
                 variant="outline-info"
+                className="button"
                 onClick={handleToggleInputVisibility}
               >
                 <FontAwesomeIcon icon={faPlus} className={style.addIcon} />

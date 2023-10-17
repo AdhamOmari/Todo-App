@@ -29,9 +29,7 @@ const List = () => {
       <TodoProgressBar progress={progress} />
       <div className={style.card}>
         {(filteredTodos?.length > 0  ? filteredTodos : todos).map((todo) => (
-          <div key={todo.id}>
-            <TodoItem id={todo.id} text={todo.text} isDone={todo.isDone} />
-          </div>
+            <TodoItem id={todo.id} text={todo.text} isDone={todo.isDone}  key={todo.id} />
         ))}
       </div>
     </div>

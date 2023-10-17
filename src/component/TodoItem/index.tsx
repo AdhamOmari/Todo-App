@@ -96,7 +96,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
   useEffect(() => {}, [newTitle]);
 
   return (
-    <li className={`${style["todo-item"]}`}>
+    <div className={`${style["todo-item"]}`}>
       {flag ? (
         <div className={`${style["save-change"]}`}>
           <input
@@ -106,7 +106,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
             className={`${style["save-change-input"]}`}
           />
           <button
-            className={`btn btn-outline-info ${style["save-button"]}`}
+            className={`btn btn-outline-info ${style["button"]}`}
             onClick={saveTitle}
           >
             <FontAwesomeIcon icon={faSave} />
@@ -173,7 +173,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
           </div>
         </>
       )}
-    </li>
+    </div>
   );
 };
 
