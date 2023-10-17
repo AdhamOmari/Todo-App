@@ -5,7 +5,7 @@ import { Button } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Form from "react-bootstrap/Form";
-import style from "./styles.module.css"; 
+import style from "./styles.module.css";
 
 const AddList: FC = () => {
   const [text, setText] = useState("");
@@ -15,7 +15,7 @@ const AddList: FC = () => {
 
   const handleToggleInputVisibility = () => {
     setInputVisible(!isInputVisible);
-    setAddButtonVisible(false); 
+    setAddButtonVisible(false);
     if (!isInputVisible) {
       document.getElementById("new-task-input")?.focus();
     }

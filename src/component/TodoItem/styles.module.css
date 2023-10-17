@@ -1,10 +1,13 @@
 .todo-item {
-    list-style-type: none;
-    background-color: #cac7c7;
-    margin: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+  align-items: center;
+    background-color: #30313d;
+    border-radius: 10px;
+    display: flex;
+    margin-top: 5px;
+    padding: 5px 9px;
+    transition: opacity .3s linear;
+    border: 1px solid #fff;
+    justify-content: space-between;
   }
   
   .title-wrap {
@@ -19,7 +22,7 @@
   .completed {
     text-decoration: line-through;
     text-decoration: line-through;
-    color: green;
+    color: #0dcaf0 !important;
     font-size: 20px;
     font-weight: 700;
     text-transform: uppercase;
@@ -42,4 +45,23 @@
     justify-content: space-around;
 
   }
+  .lefted{
+    justify-content: flex-end;
+padding: 1%
+
   
+  }
+  .newTitle{
+    margin: 4% auto;
+    color: #fff;
+
+  }
+
+  
+  .button{
+    border-radius: 50px !important;
+  }
+  .customStyles{
+    border: "none", 
+
+  }

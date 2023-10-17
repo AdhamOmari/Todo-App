@@ -4,10 +4,7 @@
     align-items: center;
     position: relative;
     float: right;
-
-
 }
-
 
 .search-input {
     display: flex;
@@ -17,7 +14,6 @@
     padding: 5px 10px;
     width: 70%;
     text-align: center;
-
 }
 
 .form-btn {
@@ -26,27 +22,22 @@
 
 }
 
-.search-input input:focus {
+.search-input:focus {
     outline: none;
-
-
 }
 
 .clear-icon {
     cursor: pointer;
     width: 80%;
-
-
 }
 
-.form-btn{
+.form-btn {
     width: 40%;
 }
 
 .search-icon {
     cursor: pointer;
     width: 80%;
-
 }
 
 @keyframes shake {
@@ -72,8 +63,6 @@
         transform: translate3d(20px, 0, 0);
     }
 }
-
-
 
 .shake {
     animation: shake 0.6s;

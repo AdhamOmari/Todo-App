@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState, useEffect } from "react";
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
 import { useDispatch, useSelector } from "react-redux";
@@ -43,18 +43,28 @@ const SearchComponent = () => {
     setInputActive(!inputActive);
     setTimeout(() => {
       setInputActive(false);
-    }, 60000); 
+    }, 7000);
+    setSearchText("");
   };
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setSearchText(e.target.value);
   };
+  useEffect(() => {
+    setShake((prevShake) => {
+      return filteredTodos?.length > 0 ? !prevShake : false;
+    });
+  }, [filteredTodos?.length]);
 
   return (
     <>
       {inputActive ? (
         <Form>
-          <div className={`${style["search-container"]} ${shake ? style.shake : ""}`}>
+          <div
+            className={`${style["search-container"]} ${
+              shake ? style.shake : ""
+            }`}
+          >
             <input
               type="text"
               placeholder="Search..."
@@ -68,7 +78,10 @@ const SearchComponent = () => {
               onClick={searchActive ? handleSearch : handleClear}
             >
               {searchActive ? (
-                <FontAwesomeIcon icon={faSearch} className={style["search-icon"]} />
+                <FontAwesomeIcon
+                  icon={faSearch}
+                  className={style["search-icon"]}
+                />
               ) : (
                 <FontAwesomeIcon
                   icon={faTimes}
@@ -80,7 +93,11 @@ const SearchComponent = () => {
           </div>
         </Form>
       ) : (
-        <Button variant="outline-info" className="form-btn" onClick={handelIsActice}>
+        <Button
+          variant="outline-info"
+          className="form-btn"
+          onClick={handelIsActice}
+        >
           <FontAwesomeIcon icon={faSearch} className={style["search-icon"]} />
         </Button>
       )}

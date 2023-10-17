@@ -4,6 +4,7 @@ import { deleteTodo, editTodo, isDoneTodo } from "../../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { writeText } from "clipboard-polyfill";
 import Swal from "sweetalert2";
+import { CircleMenu, CircleMenuItem } from "react-circular-menu";
 
 import style from "./styles.module.css";
 import {
@@ -112,55 +113,65 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
           </button>
         </div>
       ) : (
-        <div>
+        <>
           <div className={`${style["title-wrap"]}`}>
             <p
-              className={
+              className={`${style["newTitle"]} ${
                 !stateDone ? style["not-completed"] : style["completed"]
-              }
+              }`}
             >
               {newTitle}
             </p>
-            <button onClick={handleCopy} className="btn btn-secondary">
-              <FontAwesomeIcon icon={faCopy} />
-            </button>
           </div>
           <div
             className={`${style["button-wrap"]} ${
               stateDone ? style["centered"] : ""
             }`}
           >
-            {!stateDone ? (
-              <>
-                <button
-                  onClick={handleEdit}
-                  className={`btn btn-warning ${style["edit-button"]}`}
-                >
-                  <FontAwesomeIcon icon={faEdit} />
-                </button>
-                <button
-                  onClick={handleDelete}
-                  className={`btn btn-danger ${style["delete-button"]}`}
-                >
-                  <FontAwesomeIcon icon={faTrash} />
-                </button>
-                <button
-                  onClick={handelIsDone}
-                  className={`btn btn-success ${style["done-button"]}`}
-                >
-                  <FontAwesomeIcon icon={faCheck} />
-                </button>
-              </>
-            ) : (
-              <button
-                onClick={handelIsDone}
-                className={`btn btn-success ${style["done-button"]}`}
+            <div>
+              <CircleMenu
+                startAngle={90}
+                rotationAngle={270}
+                itemSize={2}
+                radius={4}
+                rotationAngleInclusive={false}
               >
-                <FontAwesomeIcon icon={faCheck} />
-              </button>
-            )}
+                <CircleMenuItem tooltip="Edit" className={'customStyles'}>
+                  <button
+                    onClick={handleEdit}
+                    className={`btn btn-warning ${style["button"]}`}
+                  >
+                    <FontAwesomeIcon icon={faEdit} />
+                  </button>
+                </CircleMenuItem>
+                <CircleMenuItem tooltip="Delete" className={'customStyles'}>
+                  <button
+                    onClick={handleDelete}
+                    className={`btn btn-danger ${style["button"]}`}
+                  >
+                    <FontAwesomeIcon icon={faTrash} />
+                  </button>
+                </CircleMenuItem>
+                <CircleMenuItem tooltip="Done" className={'customStyles'}>
+                  <button
+                    onClick={handelIsDone}
+                    className={`btn btn-success ${style["button"]}`}
+                  >
+                    <FontAwesomeIcon icon={faCheck} />
+                  </button>
+                </CircleMenuItem>
+                <CircleMenuItem tooltip="Copy" className={'customStyles'}>
+                  <button
+                    onClick={handleCopy}
+                    className={`btn btn-secondary ${style["button"]}`}
+                  >
+                    <FontAwesomeIcon icon={faCopy} />
+                  </button>
+                </CircleMenuItem>
+              </CircleMenu>
+            </div>
           </div>
-        </div>
+        </>
       )}
     </li>
   );
