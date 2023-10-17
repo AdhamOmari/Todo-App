@@ -43,7 +43,7 @@ const SearchComponent = () => {
     setInputActive(!inputActive);
     setTimeout(() => {
       setInputActive(false);
-    }, 70000);
+    }, 7000);
     setSearchText("");
   };
 
