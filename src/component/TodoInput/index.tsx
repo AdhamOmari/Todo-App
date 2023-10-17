@@ -43,7 +43,7 @@ const AddList = () => {
                 id="new-task-input"
                 className={style.newTaskInput}
                 type="text"
-                placeholder="New todo"
+                placeholder="New ToDo..."
                 value={text}
                 onChange={(e) => setText(e.target.value)}
               />
