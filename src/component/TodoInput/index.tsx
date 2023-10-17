@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import {  useState } from "react";
 import { useDispatch } from "react-redux";
 import { addTodo } from "../../redux/actions";
 import { Button } from "react-bootstrap";
@@ -7,7 +7,7 @@ import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import Form from "react-bootstrap/Form";
 import style from "./styles.module.css";
 
-const AddList: FC = () => {
+const AddList = () => {
   const [text, setText] = useState("");
   const [isInputVisible, setInputVisible] = useState(false);
   const [isAddButtonVisible, setAddButtonVisible] = useState(true);

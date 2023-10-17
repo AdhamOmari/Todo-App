@@ -68,6 +68,7 @@
   width: 88%;
   min-width: 20%;
   margin: 25% auto;
+  gap: 10px;
 }
 
 .todo-progress-label {

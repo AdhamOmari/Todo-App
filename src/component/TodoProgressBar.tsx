@@ -1,15 +1,17 @@
-import ProgressBar from "react-bootstrap/ProgressBar";
+import { CircularProgressbar } from "react-circular-progressbar";
+import "react-circular-progressbar/dist/styles.css";
 
 interface TodoProgressBarProps {
   progress: number;
 }
 
 const TodoProgressBar = ({ progress }: TodoProgressBarProps) => {
-
   return (
     <div className="todo-progress-bar-container">
-      <div className="todo-progress-label">Todo Done</div>
-      <ProgressBar now={progress} style={{ width: "100%" }}  variant="info" />
+      <h2 className="todo-progress-label">Todo Done</h2>
+      <div style={{ width: '100%', maxWidth: 150 }}>
+        <CircularProgressbar value={progress} text={`${progress}%`} />;
+      </div>
     </div>
   );
 };

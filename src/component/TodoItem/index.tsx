@@ -4,16 +4,10 @@ import { deleteTodo, editTodo, isDoneTodo } from "../../redux/actions";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { writeText } from "clipboard-polyfill";
 import Swal from "sweetalert2";
-import { CircleMenu, CircleMenuItem } from "react-circular-menu";
 
 import style from "./styles.module.css";
-import {
-  faCheck,
-  faCopy,
-  faEdit,
-  faSave,
-  faTrash,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSave } from "@fortawesome/free-solid-svg-icons";
+import CustomCircleMenu from "./circlemenu";
 
 interface TodoItemProps {
   id: number;
@@ -96,7 +90,9 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
   useEffect(() => {}, [newTitle]);
 
   return (
-<div className={`${style["todo-item"]} ${flag ? style["center-class"] : ""}`}>
+    <div
+      className={`${style["todo-item"]} ${flag ? style["center-class"] : ""}`}
+    >
       {flag ? (
         <div className={`${style["save-change"]}`}>
           <input
@@ -129,47 +125,12 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
             }`}
           >
             <div>
-              <CircleMenu
-                startAngle={90}
-                rotationAngle={270}
-                itemSize={2}
-                radius={4}
-                rotationAngleInclusive={false}
-                
-              >
-                <CircleMenuItem tooltip="Edit" className={"customStyles"}>
-                  <button
-                    onClick={handleEdit}
-                    className={`btn btn-warning ${style["button"]}`}
-                  >
-                    <FontAwesomeIcon icon={faEdit} />
-                  </button>
-                </CircleMenuItem>
-                <CircleMenuItem tooltip="Delete" className={"customStyles"}>
-                  <button
-                    onClick={handleDelete}
-                    className={`btn btn-danger ${style["button"]}`}
-                  >
-                    <FontAwesomeIcon icon={faTrash} />
-                  </button>
-                </CircleMenuItem>
-                <CircleMenuItem tooltip="Done" className={"customStyles"}>
-                  <button
-                    onClick={handelIsDone}
-                    className={`btn btn-success ${style["button"]}`}
-                  >
-                    <FontAwesomeIcon icon={faCheck} />
-                  </button>
-                </CircleMenuItem>
-                <CircleMenuItem tooltip="Copy" className={"customStyles"}>
-                  <button
-                    onClick={handleCopy}
-                    className={`btn btn-secondary ${style["button"]}`}
-                  >
-                    <FontAwesomeIcon icon={faCopy} />
-                  </button>
-                </CircleMenuItem>
-              </CircleMenu>
+              <CustomCircleMenu
+                onEdit={handleEdit}
+                onDelete={handleDelete}
+                onDone={handelIsDone}
+                onCopy={handleCopy}
+              />
             </div>
           </div>
         </>
