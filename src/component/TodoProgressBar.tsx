@@ -5,7 +5,6 @@ interface TodoProgressBarProps {
 }
 
 const TodoProgressBar = ({ progress }: TodoProgressBarProps) => {
-  console.log("✅ progress", progress);
 
   return (
     <div className="todo-progress-bar-container">

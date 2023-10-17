@@ -18,12 +18,10 @@ const List = () => {
   const filteredTodos: Todo[] = useSelector(
     (state: RootState) => state.filteredTodos as unknown as Todo[]
   );
-  console.log("✅ todos    ", todos);
 
   const completedTodos = todos.filter((todo) => todo.isDone);
   const progress = (completedTodos.length / todos.length) * 100;
   useEffect(() => {}, [progress]);
-  console.log('✅ progress    ', progress)
   
 
   return (

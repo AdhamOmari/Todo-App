@@ -136,7 +136,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
                 radius={4}
                 rotationAngleInclusive={false}
               >
-                <CircleMenuItem tooltip="Edit" className={'customStyles'}>
+                <CircleMenuItem tooltip="Edit" className={"customStyles"}>
                   <button
                     onClick={handleEdit}
                     className={`btn btn-warning ${style["button"]}`}
@@ -144,7 +144,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
                     <FontAwesomeIcon icon={faEdit} />
                   </button>
                 </CircleMenuItem>
-                <CircleMenuItem tooltip="Delete" className={'customStyles'}>
+                <CircleMenuItem tooltip="Delete" className={"customStyles"}>
                   <button
                     onClick={handleDelete}
                     className={`btn btn-danger ${style["button"]}`}
@@ -152,7 +152,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
                     <FontAwesomeIcon icon={faTrash} />
                   </button>
                 </CircleMenuItem>
-                <CircleMenuItem tooltip="Done" className={'customStyles'}>
+                <CircleMenuItem tooltip="Done" className={"customStyles"}>
                   <button
                     onClick={handelIsDone}
                     className={`btn btn-success ${style["button"]}`}
@@ -160,7 +160,7 @@ const TodoItem: React.FC<TodoItemProps> = ({ id, text, isDone }) => {
                     <FontAwesomeIcon icon={faCheck} />
                   </button>
                 </CircleMenuItem>
-                <CircleMenuItem tooltip="Copy" className={'customStyles'}>
+                <CircleMenuItem tooltip="Copy" className={"customStyles"}>
                   <button
                     onClick={handleCopy}
                     className={`btn btn-secondary ${style["button"]}`}
